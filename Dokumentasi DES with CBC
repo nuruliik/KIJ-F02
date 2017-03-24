@@ -44,7 +44,13 @@ panjangnya 32 bit. Kedua bagian ini masuk ke dalam 16 putaran DES. Pada setiap p
 transformasi yang ;isebut f. Pada fungsi f, blok R dikombinasikan dengan kunci internal K,. Keluaran dai =angsi f di-XOR-kan 
 dengan blok L untuk mendapatkan blok R yang baru. Sedangkan blok - yang baru langsung diambil dari blok R sebelumnya.
 
-
+    Salah satu alternatif untuk mencegah munculnya blok-blok ciphertext yang sama dari blok plaintext yang sama pada satu pesan 
+adalah dengan menggunakan mode CBC. Pada skema ini setiap blok n-bit plaintext di-XOR-kan dengan blok n-bit ciphertext 
+sebelumnya. Kecuali  blok plaintext pertama di-XOR-kan dengan suatu  konstanta  awal  atau  initialization  vector  (IV),  
+sebesar  n-bit.  Hasil  dari proses XOR tersebut yang kemudian dienkripsi. Untuk  proses  dekripsi,  hasil  dekripsi  blok
+ciphertext di-XOR-kan dengan blok ciphertext sebelumnya untuk menghasilkan blok plaintext. Untuk blok pertama, hasil dekripsi
+blok ciphertext pertama di-XOR-kan dengan IV untuk menghasilkan blok plaintext pertama. Walaupun nilai IV tidak perlu 
+dirahasiakan akan tetapi integritas dari nilai IV harus dilindungi.
 
 
 SOURCE CODE
@@ -62,3 +68,4 @@ KESIMPULAN
 REFERENSI
 http://ilmu-kriptografi.blogspot.co.id/2009/05/algoritma-des-data-encryption-standart.html
 https://cryptobounce.wordpress.com/2008/06/19/block-cipher/
+http://elib.unikom.ac.id/files/disk1/358/jbptunikompp-gdl-ridhohasil-17866-2-bab2.pdf
