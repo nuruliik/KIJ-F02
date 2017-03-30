@@ -1,5 +1,5 @@
 
-DOKUMENTASI DES with CBC
+DOKUMENTASI DES with OFB
 
 KIJ F
 Kelompok F02
@@ -20,16 +20,10 @@ Serikat.
     DES termasuk ke dalam sistem kriptografi simetri dan tergolong jenis cipher blok. DES beroperasi pada ukuran blok 64 bit. 
 DES mengenkripsikan 64 bit plainteks menjadi 64 bit cipherteks dengan menggunakan 56 bit kunci internal (internal key) atau 
 upa-kunci (subkey). Kunci internal dibangkitkan dari kunci eksternal (external key) yang panjangnya 64 bit.
-    Kami memilih implementasi DES dengan menggunakan CBC. Dimana mode operasi Cipher Block Chaining (CBC) merupakan salah satu 
-mode operasi block cipher yang menggunakan vektor inisialisasi (initialitation vector/IV) dengan ukuran tertentu (ukurannya 
-sama dengan satu blok plaintext). Pada mode operasi ini plaintext dibagi menjadi beberapa blok, kemudian masing-masing blok 
-dienkripsi dengan ketentuan blok plaintext pertama dienkripsi lebih dahulu. Sebelum dienkripsi, plaintext di-XOR dengan IV. 
-Lalu, hasil XOR tersebut dienkripsi hingga menghasilkan ciphertext. Selanjutnya, ciphertext tersebut digunakan sebagai IV untuk
-proses penyandian blok plaintext selanjutnya. Mode operasi CBC menutupi kelemahan dari mode operasi ECB, karena pada CBC dapat
-menyembunyikan  pola dari plaintext. Mengapa demikian? Karena sebelum dienkripsi, plaintext di-XOR dengan IV atau ciphertext 
-sebelumnya, sehingga plaintext yang sama belum tentu menghasilkan ciphertext yang sama, kecuali jika memiliki IV/ciphertext 
-sebelumnya yang sama. Kelemahan dari CBC adalah untuk mendekripsi ciphertext, dipengaruhi oleh ciphertext sebelumnya. Jika ada 
-kesalahan pada ciphertext sebelumnya, maka ciphertext selanjutnya pun akan salah.
+    Kami memilih implementasi DES dengan menggunakan OFB. Perbedaan mendasar OFB, yang membedakannya dengan CFB adalah input yang 
+digunakan dalam proses enkripsi. Kalau dalam CFB, input yang digunakan adalah ciphertext yang selanjutnya dishift bersama IV, dalam 
+OFB yang digunakan adalah output bit hasil dari proses seleksi yang kemudian dishift bersama IV yang sebelumnya. Hasil Seleksi tetap 
+diguanakan dalam proses enkripsi Plaintext untuk mendapatkan Ciphertext.
 
 DASAR TEORI
 
@@ -44,24 +38,10 @@ panjangnya 32 bit. Kedua bagian ini masuk ke dalam 16 putaran DES. Pada setiap p
 transformasi yang ;isebut f. Pada fungsi f, blok R dikombinasikan dengan kunci internal K,. Keluaran dai =angsi f di-XOR-kan 
 dengan blok L untuk mendapatkan blok R yang baru. Sedangkan blok - yang baru langsung diambil dari blok R sebelumnya.
 
-    Salah satu alternatif untuk mencegah munculnya blok-blok ciphertext yang sama dari blok plaintext yang sama pada satu pesan 
-adalah dengan menggunakan mode CBC. Pada skema ini setiap blok n-bit plaintext di-XOR-kan dengan blok n-bit ciphertext 
-sebelumnya. Kecuali  blok plaintext pertama di-XOR-kan dengan suatu  konstanta  awal  atau  initialization  vector  (IV),  
-sebesar  n-bit.  Hasil  dari proses XOR tersebut yang kemudian dienkripsi. Untuk  proses  dekripsi,  hasil  dekripsi  blok
-ciphertext di-XOR-kan dengan blok ciphertext sebelumnya untuk menghasilkan blok plaintext. Untuk blok pertama, hasil dekripsi
-blok ciphertext pertama di-XOR-kan dengan IV untuk menghasilkan blok plaintext pertama. Walaupun nilai IV tidak perlu 
-dirahasiakan akan tetapi integritas dari nilai IV harus dilindungi.
-
-
-SOURCE CODE
-
-
-
-
-KESIMPULAN
-
-
-
+    Mode Output Feedback (OFB mode) mirip dengan mode CFB kecuali bahwa jumlah operasi XOR dengan setiap blok plaintext dihasilkan 
+secara independen dari baik plaintext maupun ciphertext. Sebuah vektor inisialisasi C0 digunakan sebagai suatu “seed” untuk sebarisan 
+blok data si, dan setiap blok data si diperoleh dari proses enkripsi terhadap blok data si-1 sebelumnya. Proses enkripsi blok plaintext
+diperoleh dengan melakukan operasi XOR antara blok plaintext dengan blok data yang relevan.
 
 
 
@@ -69,3 +49,4 @@ REFERENSI
 http://ilmu-kriptografi.blogspot.co.id/2009/05/algoritma-des-data-encryption-standart.html
 https://cryptobounce.wordpress.com/2008/06/19/block-cipher/
 http://elib.unikom.ac.id/files/disk1/358/jbptunikompp-gdl-ridhohasil-17866-2-bab2.pdf
+https://ilmukriptografi.wordpress.com/2012/04/25/kriptografi-simetrik-dasar-block-cipher/
