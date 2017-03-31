@@ -3,21 +3,21 @@ DOKUMENTASI DES with OFB
 
 KIJ F
 Kelompok F02
-        1. I Made Fandy Aditya Wirana (5114100026)
-        2. Nurul Wachidah             (5114100052)
+1. I Made Fandy Aditya Wirana (5114100026)
+2. Nurul Wachidah             (5114100052)
 
 
 
 PENDAHULUAN
 
-   DES(Data Encryption Standard) adalah algoritma cipher blok yang populer karena dijadikan standard algoritma enkripsi
+        DES(Data Encryption Standard) adalah algoritma cipher blok yang populer karena dijadikan standard algoritma enkripsi
 kunci-simetri, meskipun saat ini standard tersebut telah digantikan dengan algoritma yang baru, AES, karena DES sudah dianggap
 tidak aman lagi. Sebenarnya DES adalah nama standard enkripsi simetri, nama algoritma enkripsinya sendiri adalah DEA 
 (Data Encryption Algorithm), namun nama DES lebih populer daripada DEA. Algoritma DES dikembangkan di IBM dibawah kepemimpinan
 W.L. Tuchman pada tahun 1972. Algoritma ini didasarkan pada algoritma Lucifer yang dibuat oleh Horst Feistel. Algoritma ini 
 telah disetujui oleh National Bureau of Standard (NBS) setelah penilaian kekuatannya oleh National Security Agency (NSA) Amerika 
 Serikat.
-    DES termasuk ke dalam sistem kriptografi simetri dan tergolong jenis cipher blok. DES beroperasi pada ukuran blok 64 bit. 
+        DES termasuk ke dalam sistem kriptografi simetri dan tergolong jenis cipher blok. DES beroperasi pada ukuran blok 64 bit. 
 DES mengenkripsikan 64 bit plainteks menjadi 64 bit cipherteks dengan menggunakan 56 bit kunci internal (internal key) atau 
 upa-kunci (subkey). Kunci internal dibangkitkan dari kunci eksternal (external key) yang panjangnya 64 bit.
     Kami memilih implementasi DES dengan menggunakan OFB. Perbedaan mendasar OFB, yang membedakannya dengan CFB adalah input yang 
@@ -28,10 +28,9 @@ diguanakan dalam proses enkripsi Plaintext untuk mendapatkan Ciphertext.
 DASAR TEORI
 
 Skema global dari algoritma DES adalah sebagai berikut (lihat Gambar 6.1):
-    1. Blok plainteks dipermutasi dengan matriks permutasi awal (initial permutation atau IP).
-        2. Hasil permutasi awal kemudian di-enciphering- sebanyak 16 kaH (16 putaran). Setiap putaran menggunakan kunci internal yang berbeda.
-            3. Hasil enciphering kemudian dipermutasi dengan matriks permutasi balikan (invers initial permutation atau IP-1 ) menjadi 
-  blok cipherteks.
+1. Blok plainteks dipermutasi dengan matriks permutasi awal (initial permutation atau IP).
+2. Hasil permutasi awal kemudian di-enciphering- sebanyak 16 kaH (16 putaran). Setiap putaran menggunakan kunci internal yang berbeda.
+3. Hasil enciphering kemudian dipermutasi dengan matriks permutasi balikan (invers initial permutation atau IP-1 ) menjadi blok cipherteks.
 
 Di dalam proses enciphering, blok plainteks terbagi menjadi dua bagian, kiri (L) dan kanan R), yang masing-masing 
 panjangnya 32 bit. Kedua bagian ini masuk ke dalam 16 putaran DES. Pada setiap putaran i, blok R merupakan masukan untuk fungsi
