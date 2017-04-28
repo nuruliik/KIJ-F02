@@ -23,7 +23,7 @@ Alice dan Bob sekarang mempunyai kAB mod q = a^XBA mod q sebagai kunci simetris 
 
 ![GitHub Logo](Screenshot_4.png)
 
-![GitHub Logo](Capture.png)
+![GitHub Logo](Capture.PNG)
 
 
 Referensi
