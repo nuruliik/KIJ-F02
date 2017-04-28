@@ -21,7 +21,7 @@ dan bob menghitung
 a^xBA mod q = (a^xA mod q)^xB mod q
 Alice dan Bob sekarang mempunyai kAB mod q = a^XBA mod q sebagai kunci simetris mereka yang dibagikan satu sama lain.
 
-https://github.com/nuruliik/KIJ-F02/edit/master/diffie-hellman/Capture.png
+https://github.com/nuruliik/KIJ-F02/blob/master/diffie-hellman/Capture.PNG
 
 
 Referensi
