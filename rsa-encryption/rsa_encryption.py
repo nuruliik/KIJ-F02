@@ -4,10 +4,9 @@ from fractions import gcd
 
 def generatePAndQ():
     while True:
-        p = random.randrange(1, 1000, 2)
+        p = random.randrange(255, 1000, 2)
         if all(p % n != 0 for n in range(3, int((p ** 0.5) + 1), 2)):
             return p
-
 
 def getN(p, q):
     return p * q
@@ -31,19 +30,17 @@ def getD(e, m):
     return pow(e, -1) % m
 
 
-def generatePublicKey(message, e, n):
+def rsaEncrypt(message, e, n):
     chiper_text = []
     for i in message:
         chiper_text.append(pow(ord(i), e) % n)
     return chiper_text
 
 
-def generatePrivatekey(chipert_text, d, n):
+def rsaDecrypt(chipert_text, d, n):
     message = ""
     for i in (chipert_text):
-        print i
-        print chr(pow(i,d)%n)
-        # message = message + chr(pow(i,d)%n)
+        message = message + chr(pow(i,d)%n)
     return message
 
 
@@ -63,15 +60,3 @@ def modinv(a, m):
         return x % m
 
 
-p = generatePAndQ()
-q = generatePAndQ()
-n = getN(p, q)
-m = getM(p, q)
-e = getRelativePrime(m)
-d = modinv(e, m)
-
-print e, m, d
-chiper_text = generatePublicKey("saya", e, n)
-print chiper_text
-message = generatePrivatekey(chiper_text, d, n)
-print message
