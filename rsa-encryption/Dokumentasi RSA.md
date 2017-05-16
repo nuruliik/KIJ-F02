@@ -31,8 +31,15 @@ Contoh kasus, misalnya terdapat dua orang, Andi yang ingin mengirimkan pesan kep
  7. Langkah selanjutnya komputer Andi akan mengenkripsi pesan yaitu : "GO" maka komputer Andi perlu mengetahui kode ASCII karakter "G" dan "O" yaitu : 71 dan 79 , kemudian melakukan enkripsi dengan fungsi enkripsi → E(ta)=tae mod n
  8. Langkah terakhir komputer Budi akan mendekripsi ciphertext c1=1798 dan c2=2444 dengan fungsi dekripsi → D(ca)=cad mod n
  
+ Dokumentasi
  
+ Client
  
+ ![GitHub Logo](clientsss.PNG)
+ 
+ Server
+ 
+ ![GitHub Logo](serverss.PNG)
  
  Referensi :
  
